@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "736903858586",
+    "firebase_url": "https://daily-grocer.firebaseio.com",
+    "project_id": "daily-grocer",
+    "storage_bucket": "daily-grocer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736903858586:android:e0110d3198cb8ab2595223",
+        "android_client_info": {
+          "package_name": "com.example.dailygrocer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736903858586-m0hf8ho6vg25kr4d914rsrkmchouhd9o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dailygrocer",
+            "certificate_hash": "eb73a47d455968fc8db340cb786dbc2c322006b8"
+          }
+        },
+        {
+          "client_id": "736903858586-6411mk2b1tki4cromiffu3tkcg6m5jfi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSZk1lFkcTWFIP3oaq0-7bpalkb_qSEAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736903858586-6411mk2b1tki4cromiffu3tkcg6m5jfi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
