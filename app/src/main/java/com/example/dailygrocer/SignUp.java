@@ -140,10 +140,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         uid = FirebaseAuth.getInstance().getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         SignUpData signUpData = new SignUpData(first_name,last_name,user_type,phn);
-        Toast.makeText(getApplicationContext(),"before",Toast.LENGTH_LONG).show();
         databaseReference.child("Profile").child(uid).setValue(signUpData);
-        Toast.makeText(getApplicationContext(),"after",Toast.LENGTH_LONG).show();
-        databaseReference.child("userid").child(phn).setValue(uid);
         if(user_type.equals("1")) {
             startActivity(new Intent(SignUp.this, HomePage.class));
             finish();

@@ -18,24 +18,27 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import static com.example.dailygrocer.HomePage.cropname;
+import static com.example.dailygrocer.HomePage.userid;
+
 public class Buy extends AppCompatActivity implements View.OnClickListener {
     TextView cropnameTextview;
-    String addres,phoneNumber,uid,username,first,last;
+    String phoneNumber,uid,username,first,last;
     EditText quantity;
     DatabaseReference databaseCrop,databaseProfile;
-    private String cropname,userid;
+    private String name,id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy);
         Intent intent =getIntent();
 
-        userid =intent.getStringExtra(userid);
-        cropname =intent.getStringExtra(cropname);
+        id =intent.getStringExtra(userid);
+        name =intent.getStringExtra(cropname);
         quantity = (EditText) findViewById(R.id.quantity);
 
         cropnameTextview = (TextView)findViewById(R.id.cropname);
-        cropnameTextview.setText(cropname);
+        cropnameTextview.setText(name);
         findViewById(R.id.buy).setOnClickListener(this);
 
         uid = FirebaseAuth.getInstance().getUid();
@@ -79,9 +82,9 @@ public class Buy extends AppCompatActivity implements View.OnClickListener {
 
         if (!TextUtils.isEmpty(quantities) ) {
 
-            Notify notify = new Notify(userid,username,cropname,quantities,phoneNumber);
+            Notify notify = new Notify(uid,username,name,quantities,phoneNumber);
 
-            databaseCrop.child("Notify").child(userid).push().setValue(notify);
+            databaseCrop.child("Notify").child(id).push().setValue(notify);
 
             Toast.makeText(getApplicationContext(), "Purchased", Toast.LENGTH_SHORT).show();
 

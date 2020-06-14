@@ -5,14 +5,14 @@ public class Notify {
     String username;
     String cropname;
     String quantities;
-    String phoneNumber;
+    String phone;
 
-    public Notify(String id, String username , String cropname, String quantities, String phoneNumber) {
+    public Notify(String id, String username , String cropname, String quantities, String phone) {
         this.id = id;
         this.username = username;
         this.cropname = cropname;
         this.quantities = quantities;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
     }
 
     public Notify(){}
@@ -32,6 +32,6 @@ public class Notify {
     }
 
     public String getPhone() {
-        return phoneNumber;
+        return phone;
     }
 }
