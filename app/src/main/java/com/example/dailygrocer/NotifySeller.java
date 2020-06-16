@@ -35,6 +35,7 @@ public class NotifySeller extends ArrayAdapter<Notify> {
         TextView textViewUsername = (TextView)listViewItem.findViewById(R.id.username);
         TextView textViewQuan = (TextView)listViewItem.findViewById(R.id.quant);
         TextView textViewPh = (TextView)listViewItem.findViewById(R.id.phon);
+        TextView textViewaddress = (TextView)listViewItem.findViewById(R.id.addres);
 
         Notify notify = notifySeller.get(position);
 
@@ -42,7 +43,7 @@ public class NotifySeller extends ArrayAdapter<Notify> {
         textViewUsername.setText(notify.getUsername());
         textViewQuan.setText(notify.getQuantities());
         textViewPh.setText(notify.getPhone());
-
+        textViewaddress.setText(notify.getAddress());
 
         return listViewItem;
 

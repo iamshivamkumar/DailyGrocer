@@ -1,20 +1,20 @@
 package com.example.dailygrocer;
 
-public class Crop {
+public class Product {
     String id;
     String cropname;
     String quantities;
     String detail;
 
 
-    public Crop(String id , String cropname, String quantities, String detail) {
+    public Product(String id , String cropname, String quantities, String detail) {
         this.id = id;
         this.cropname = cropname;
         this.quantities = quantities;
         this.detail = detail;
     }
 
-    public Crop(){}
+    public Product(){}
 
 
     public String getId() {

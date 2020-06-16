@@ -9,19 +9,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.List;
 
-public class CropList extends ArrayAdapter<Crop> {
+public class ProductList extends ArrayAdapter<Product> {
 
     private Activity context;
-    private List<Crop> cropList;
+    private List<Product> productList;
 
-    public CropList(Activity context, List<Crop> cropList){
-        super(context,R.layout.list_layout,cropList);
+    public ProductList(Activity context, List<Product> productList){
+        super(context,R.layout.list_layout, productList);
         this.context = context;
-        this.cropList =cropList;
+        this.productList = productList;
     }
 
     @NonNull
@@ -37,12 +35,12 @@ public class CropList extends ArrayAdapter<Crop> {
         TextView textViewDet = (TextView)listViewItem.findViewById(R.id.det);
 
 
-        Crop crop = cropList.get(position);
+        Product product = productList.get(position);
 
-        textViewuserid.setText(crop.getId());
-        textViewName.setText(crop.getCropname());
-        textViewQuan.setText(crop.getQuantities());
-        textViewDet.setText(crop.getDetail());
+        textViewuserid.setText(product.getId());
+        textViewName.setText(product.getCropname());
+        textViewQuan.setText(product.getQuantities());
+        textViewDet.setText(product.getDetail());
 
 
         return listViewItem;

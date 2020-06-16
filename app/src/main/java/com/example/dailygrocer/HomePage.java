@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -22,14 +21,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static java.lang.Thread.sleep;
 
 public class HomePage extends AppCompatActivity implements View.OnClickListener {
     ListView listViewCrop;
     DatabaseReference databaseCrop;
-    List<Crop> cropList;
+    List<Product> productList;
     public static final String cropname ="cropname";
     public static final String username ="username";
     public static final String userid = "Userid";
@@ -37,7 +35,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        cropList = new ArrayList<>();
+        productList = new ArrayList<>();
 
         listViewCrop = (ListView) findViewById(R.id.croplistview);
 
@@ -47,11 +45,11 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Crop crop = cropList.get(position);
+                Product product = productList.get(position);
 
                 Intent intent = new Intent(HomePage.this , Buy.class);
-                intent.putExtra(cropname,crop.getCropname());
-                intent.putExtra(userid,crop.getId());
+                intent.putExtra(cropname, product.getCropname());
+                intent.putExtra(userid, product.getId());
                 startActivity(intent);
 
             }
@@ -82,14 +80,14 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                cropList.clear();
+                productList.clear();
 
                 for (DataSnapshot cropSnapshot : dataSnapshot.getChildren()){
-                    Crop crop = cropSnapshot.getValue(Crop.class);
-                    cropList.add(crop);
+                    Product product = cropSnapshot.getValue(Product.class);
+                    productList.add(product);
                 }
 
-                CropList adapter = new CropList(HomePage.this,cropList);
+                ProductList adapter = new ProductList(HomePage.this, productList);
                 listViewCrop.setAdapter(adapter);
 
             }

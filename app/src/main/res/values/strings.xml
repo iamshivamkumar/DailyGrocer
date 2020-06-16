@@ -20,6 +20,6 @@
     <string name="address">Address</string>
     <string name="details">Details</string>
     <string name="buy">Buy</string>
-    <string name="crop_name">Crop Name</string>
+    <string name="product">Product</string>
     <string name="notification">Notification</string>
 </resources>

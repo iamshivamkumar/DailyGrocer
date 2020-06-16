@@ -6,16 +6,22 @@ public class Notify {
     String cropname;
     String quantities;
     String phone;
+    String address;
 
-    public Notify(String id, String username , String cropname, String quantities, String phone) {
+    public Notify(String id, String username , String cropname, String quantities, String phone,String address) {
         this.id = id;
         this.username = username;
         this.cropname = cropname;
         this.quantities = quantities;
         this.phone = phone;
+        this.address = address;
     }
 
     public Notify(){}
+
+    public String getAddress() {
+        return address;
+    }
 
     public String getUsername() { return username; }
 

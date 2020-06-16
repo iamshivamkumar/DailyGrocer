@@ -23,7 +23,7 @@ import static com.example.dailygrocer.HomePage.userid;
 
 public class Buy extends AppCompatActivity implements View.OnClickListener {
     TextView cropnameTextview;
-    String phoneNumber,uid,username,first,last;
+    String phoneNumber,uid,username,first,last,address;
     EditText quantity;
     DatabaseReference databaseCrop,databaseProfile;
     private String name,id;
@@ -56,6 +56,7 @@ public class Buy extends AppCompatActivity implements View.OnClickListener {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 phoneNumber = (String) dataSnapshot.child(uid).child("phoneNumber").getValue();
+                address = (String) dataSnapshot.child(uid).child("address").getValue();
                 first = (String) dataSnapshot.child(uid).child("firstName").getValue();
                 last = (String) dataSnapshot.child(uid).child("lastName").getValue();
                 username=first+" "+last;
@@ -82,7 +83,7 @@ public class Buy extends AppCompatActivity implements View.OnClickListener {
 
         if (!TextUtils.isEmpty(quantities) ) {
 
-            Notify notify = new Notify(uid,username,name,quantities,phoneNumber);
+            Notify notify = new Notify(uid,username,name,quantities,phoneNumber,address);
 
             databaseCrop.child("Notify").child(id).push().setValue(notify);
 

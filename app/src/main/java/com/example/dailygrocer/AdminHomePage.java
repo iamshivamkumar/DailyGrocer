@@ -50,7 +50,7 @@ public class AdminHomePage extends AppCompatActivity implements View.OnClickList
         username = fname+" "+lname;
 
         if (cropName.isEmpty()) {
-            cropname.setError("Crop name is required");
+            cropname.setError("Product name is required");
             cropname.requestFocus();
             return;
         }
@@ -68,11 +68,11 @@ public class AdminHomePage extends AppCompatActivity implements View.OnClickList
 
         if (!TextUtils.isEmpty(cropName) && !TextUtils.isEmpty(quantities) && !TextUtils.isEmpty(detail)  ) {
 
-            Crop crop = new Crop(uid,cropName, quantities, detail);
+            Product product = new Product(uid,cropName, quantities, detail);
 
-            databaseCrop.push().setValue(crop);
+            databaseCrop.push().setValue(product);
 
-            Toast.makeText(this, "Crop Listed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Product Listed", Toast.LENGTH_SHORT).show();
         }
     }
     @Override

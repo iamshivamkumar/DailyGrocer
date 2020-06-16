@@ -25,9 +25,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
     DatabaseReference databaseReference;
     EditText editTextEmail, editTextPassword;
-    String first_name,last_name,phn,email;
+    String first_name,last_name,phn,email,address;
     String user_type="1";
-    EditText fname, lname, phonenumber;
+    EditText fname, lname, phonenumber,add;
     private String uid;
     private RadioGroup usertype;
     private RadioButton radioButton;
@@ -42,6 +42,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         fname = (EditText) findViewById(R.id.firstName);
         lname = (EditText) findViewById(R.id.LastName);
         phonenumber = (EditText) findViewById(R.id.mobile);
+        add = (EditText) findViewById(R.id.address);
         usertype = (RadioGroup)findViewById(R.id.usertype);
         usertype.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -82,12 +83,14 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         first_name = fname.getText().toString().trim();
         last_name = lname.getText().toString().trim();
         phn = phonenumber.getText().toString().trim();
+        address = add.getText().toString().trim();
 
         if(email.isEmpty()){
             editTextEmail.setError("Email is required");
             editTextEmail.requestFocus();
             return;
         }
+
         if (first_name.isEmpty()) {
             fname.setError("First name is required");
             fname.requestFocus();
@@ -101,6 +104,11 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         if (phn.isEmpty()) {
             phonenumber.setError("Phone number is required");
             phonenumber.requestFocus();
+            return;
+        }
+        if(address.isEmpty()){
+            add.setError("Email is required");
+            add.requestFocus();
             return;
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
@@ -139,7 +147,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private void data(){
         uid = FirebaseAuth.getInstance().getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        SignUpData signUpData = new SignUpData(first_name,last_name,user_type,phn);
+        SignUpData signUpData = new SignUpData(first_name,last_name,user_type,phn,address);
         databaseReference.child("Profile").child(uid).setValue(signUpData);
         if(user_type.equals("1")) {
             startActivity(new Intent(SignUp.this, HomePage.class));

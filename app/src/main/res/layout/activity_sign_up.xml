@@ -68,7 +68,16 @@
             android:textColor="@color/white"
             android:inputType="phone"
             />
-
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/address"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
